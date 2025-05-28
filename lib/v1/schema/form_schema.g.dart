@@ -14,18 +14,9 @@ FormSchema _$FormSchemaFromJson(Map<String, dynamic> json) => FormSchema(
       schemaVersion: json['schemaVersion'] as String? ?? '1.0.0',
     );
 
-Map<String, dynamic> _$FormSchemaToJson(FormSchema instance) {
-  final val = <String, dynamic>{
-    'fields': instance.fields.map((e) => e.toJson()).toList(),
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('category', instance.category);
-  val['schemaVersion'] = instance.schemaVersion;
-  return val;
-}
+Map<String, dynamic> _$FormSchemaToJson(FormSchema instance) =>
+    <String, dynamic>{
+      'fields': instance.fields.map((e) => e.toJson()).toList(),
+      'category': instance.category,
+      'schemaVersion': instance.schemaVersion,
+    };

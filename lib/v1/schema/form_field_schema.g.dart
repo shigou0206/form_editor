@@ -24,25 +24,16 @@ FormFieldSchema _$FormFieldSchemaFromJson(Map<String, dynamic> json) =>
       group: json['group'] as String?,
     );
 
-Map<String, dynamic> _$FormFieldSchemaToJson(FormFieldSchema instance) {
-  final val = <String, dynamic>{
-    'name': instance.name,
-    'label': instance.label,
-    'fieldType': instance.fieldType,
-    'required': instance.required,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('defaultValue', instance.defaultValue);
-  val['allowExpression'] = instance.allowExpression;
-  writeNotNull('visibleIf', instance.visibleIf);
-  writeNotNull('children', instance.children?.map((e) => e.toJson()).toList());
-  writeNotNull('enumValues', instance.enumValues);
-  writeNotNull('group', instance.group);
-  return val;
-}
+Map<String, dynamic> _$FormFieldSchemaToJson(FormFieldSchema instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'label': instance.label,
+      'fieldType': instance.fieldType,
+      'required': instance.required,
+      'defaultValue': instance.defaultValue,
+      'allowExpression': instance.allowExpression,
+      'visibleIf': instance.visibleIf,
+      'children': instance.children?.map((e) => e.toJson()).toList(),
+      'enumValues': instance.enumValues,
+      'group': instance.group,
+    };
